@@ -189,4 +189,81 @@ void main() {
   // =====================================================
   print(age is int);
   print(age is! String);
+
+  // =====================================================
+  // 21. Record
+  // A Record stores multiple values of different types.
+  // Similar to a tuple in Python.
+  // =====================================================
+
+  (int, String, bool) person = (22, "Ashish", true);
+
+  print(person);
+  print(person.$1); // 22
+  print(person.$2); // Ashish
+  print(person.$3); // true
+
+  // =====================================================
+  // 22. Function
+  // Functions are objects in Dart.
+  // They can be stored in variables and passed around.
+  // =====================================================
+
+  int add(int a, int b) {
+    return a + b;
+  }
+
+  Function operation = add;
+
+  print(operation(10, 20));
+
+  // =====================================================
+  // 24. Future
+  // Represents a value that will be available later.
+  // Used for API calls and asynchronous programming.
+  // =====================================================
+
+  Future<String> fetchData() async {
+    return "Data Loaded";
+  }
+
+  // Inside main()
+  fetchData().then((value) {
+    print(value);
+  });
+
+  // =====================================================
+  // 25. Iterable
+  // Returned by methods like map() and where().
+  // Convert it to a List using toList().
+  // =====================================================
+  List<int> numberss = [1, 2, 3, 4, 5];
+
+  Iterable<int> even = numberss.where((n) => n.isEven);
+
+  print(even);
+  print(even.toList());
+
+  // =====================================================
+  // 26. late
+  // Declares a non-null variable that will be initialized later.
+  // =====================================================
+
+  late String college;
+
+  college = "IIT Delhi";
+
+  print(college);
+
+  // =====================================================
+  // 27. Never
+  // Used for functions that never return normally.
+  // Usually because they always throw an exception.
+  // =====================================================
+
+  Never showError() {
+    throw Exception("Something went wrong");
+  }
+
+  // Don't call it here or the program will stop.
 }
